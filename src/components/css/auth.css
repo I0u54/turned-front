@@ -1,0 +1,277 @@
+
+
+* {
+  font-family: 'Outfit';
+}
+  /* input[type="text"],input[type="email"],input[type="password"]{
+    transition: 300ms;
+  } */
+.swal2-popup,.swal2-title {
+  
+  
+    text-transform: capitalize;
+    font-size: 1.275em;
+    
+  }
+  .swal2-popup{
+    padding: 30px;
+    z-index: 999999;
+  }
+  .formSection{
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+.formSection form{
+  background-color: white;
+  width: 60%;
+  height:fit-content ;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  
+}
+.formSection form label{
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.formSection form .form-head h1{
+  font-size: 30px;
+  font-weight: bold;
+  
+}
+.formSection form .form-body{
+  
+  margin-top: 30px;
+}
+.formSection form .form-body .fnln{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.formSection form .form-body .fnln .first{
+  width: 48%;
+}
+.formSection form .form-body .fnln .second{
+  width: 48%;
+}
+.formSection form .form-body .submit{
+  background-color: black;
+  color: white;
+  transition: 350ms;
+}
+.formSection form .form-body .submit:hover{
+  background-color: white;
+  color: black;
+
+}
+.loginSection{
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.loginSection form{
+  background-color: white;
+  width: 45%;
+  height:fit-content ;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  
+}
+.loginSection form label{
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.loginSection form .form-head h1{
+ 
+  
+  font-size: 30px;
+  font-weight: bold;
+  
+}
+.loginSection form .form-body .submit{
+  background-color: black;
+  color: white;
+  transition: 350ms;
+}
+.loginSection form .form-body .submit:hover{
+  background-color: white;
+  color: black;
+
+}
+.forgetSection{
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.forgetSection form{
+  background-color: white;
+  width: 45%;
+  height:fit-content ;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  
+}
+.forgetSection form label{
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+
+.forgetSection form .form-head h1{
+  font-size: 30px;
+  font-weight: bold;
+  
+}
+
+
+.forgetSection form .form-body .submit{
+  background-color: black;
+  color: white;
+  transition: 350ms;
+}
+.forgetSection form .form-body .submit:hover{
+  background-color: white;
+  color: black;
+
+}
+.resetSection{
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.resetSection form{
+  background-color: white;
+  width: 45%;
+  height:fit-content ;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  
+}
+.resetSection form label{
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+
+.resetSection form .form-head h1{
+  font-size: 30px;
+  font-weight: bold;
+  
+}
+
+
+.resetSection form .form-body .submit{
+  background-color: black;
+  color: white;
+  transition: 350ms;
+}
+.resetSection form .form-body .submit:hover{
+  background-color: white;
+  color: black;
+
+}
+
+
+input:focus{
+  box-shadow: none !important;
+  border-color: black !important;
+  border-width: 2px;
+ 
+}
+@media(max-width:1120px){
+  /* .formSection form .form-body .fnln{
+    flex-direction: column;
+    margin: 0;
+   
+  } */
+  /* .formSection form .form-body .fnln .first{
+    width: 100%;
+    
+  }
+
+  .formSection form .form-body .fnln .second{
+    width: 100%;
+  }
+  .formSection form{
+    height: 100%;
+  }
+  .formSection form input{
+    margin-bottom: 15px;
+  } */
+  .formSection form{
+    width: 80%;
+  }
+  .loginSection form{
+    width: 80%;
+  }
+  .forgetSection form{
+    width: 80%;
+  }
+  .resetSection form{
+    width: 80%;
+  }
+
+}
+  @media(max-width:720px){
+    
+    .loginSection form{
+      width: 85%;
+    }
+    .forgetSection form{
+      width: 85%;
+    }
+    .resetSection form{
+      width: 85%;
+    }
+    .formSection form{
+      width: 90%;
+    }
+
+
+  }
+  @media(max-width:520px){
+    .formSection form{
+      width: 96%;
+    }
+    .loginSection form{
+      width: 90%;
+    }
+    .forgetSection form{
+      width: 90%;
+    }
+    .resetSection form{
+      width: 90%;
+    }
+   
+   
+
+  }
+
