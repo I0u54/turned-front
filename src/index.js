@@ -11,6 +11,9 @@ import turnedSlice from './slices/turnedSlice';
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter } from 'react-router-dom';
 
+console.warn = () => {};
+console.error = () => {};
+
 
 axios.defaults.baseURL = 'http://localhost:8000/';
 const store = configureStore({

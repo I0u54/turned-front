@@ -43,7 +43,7 @@ const turnedSlice = createSlice({
         }).addCase(fetchdarets.fulfilled,(state,action)=>{
             state.status='success'
             state.data = action.payload.darets.sort((a, b) =>b.available -  a.available)
-            console.log(state.data)
+           
            
             
         })

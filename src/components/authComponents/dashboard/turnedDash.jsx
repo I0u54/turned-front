@@ -62,6 +62,38 @@ export default function TurnedDash({ data, openEditAlert }) {
         })
 
     }
+    const endTurned = async (id) => {
+        await axios.post('/endDaret/' + id, {}, {
+            headers: {
+
+                Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+
+            }
+        }).then((response) => {
+            onAlertClose()
+            dispatch(setTurnedStatus('idle'))
+
+            toast({
+                title: response.data.message,
+                status: 'success',
+                duration: 2000,
+                isClosable: true,
+                position: 'top-left',
+                variant: 'left-accent'
+            })
+        }).catch((error) => {
+            toast({
+                title: error.response.data.error,
+                status: 'error',
+                duration: 2000,
+                isClosable: true,
+                position: 'top-left',
+                variant: 'left-accent'
+            })
+        })
+
+
+    }
     const destroyParticipation = async (id) => {
         await axios.delete('/participationDelete/' + id, {
             headers: {
@@ -145,6 +177,23 @@ export default function TurnedDash({ data, openEditAlert }) {
 
                             <span span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-300 ring-1 ring-inset ring-red-600/10  cursor-not-allowed" ><i className="bi bi-trash3-fill"></i></span>
                         </Tooltip>}
+
+
+                    {
+                        expired_at !== null && new Date(expired_at).getTime() < new Date().getTime() && status !== "expired" && (
+                            <Tooltip label="Close this turned">
+                                <span
+                                    className="inline-flex ml-1 items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10 hover:scale-110 cursor-pointer transition duration-200"
+                                    onClick={() => {
+                                        endTurned(id);
+                                    }}
+                                >
+                                    <i className="bi bi-stopwatch-fill"></i>
+                                </span>
+                            </Tooltip>
+                        )
+                    }
+
 
 
                 </div>

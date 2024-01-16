@@ -169,7 +169,7 @@ export default function Profile() {
 
 
                                                             :
-                                                            <Tooltip label={reparticipationDate > new Date().getTime() && "next participation at : " + new Date(reparticipationDate).toDateString()}>
+                                                            <Tooltip label={reparticipationDate > new Date().getTime()  && "next participation at : " + new Date(reparticipationDate).toDateString()}>
                                                                 <IconButton
                                                                     isRound={true}
                                                                     variant='solid'
