@@ -48,7 +48,7 @@ export default function Turned({ data }) {
 
   return (
     <div className='div'>
-      <div className='spans'>
+      <div className='spans mb-2'>
         <div>
           <span style={{ marginRight: "5px" }}>Turned</span>
           <span style={{ marginRight: "5px" }}>{available <= 0 ? "Unavailable" : "Available"}</span>

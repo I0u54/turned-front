@@ -188,8 +188,7 @@ export default function Footer() {
                         <ul className="mt-6 space-y-5">
                             <li>
                                 <a
-                                    href="#"
-                                    title=""
+                                   
                                     className="flex text-sm text-gray-800 transition-all duration-200 hover:text-cyan-700 focus:text-cyan-700"
                                 >
                                     {" "}
@@ -198,26 +197,23 @@ export default function Footer() {
                             </li>
                             <li>
                                 {user.admin ?   <Link to='/dashboard'
-                                    href="#"
-                                    title=""
+                                    
                                     className="flex text-sm text-gray-800 transition-all duration-200 hover:text-cyan-700 focus:text-cyan-700"
                                 >
                                     {" "}
                                     Dashboard{" "}
-                                </Link> :   <Link
-                                    href="#"
-                                    title=""
+                                </Link> :   <Link to='/turneds'
+                                    
                                     className="flex text-sm text-gray-800 transition-all duration-200 hover:text-cyan-700 focus:text-cyan-700"
                                 >
                                     {" "}
-                                    Delivery Details{" "}
+                                    Get Started{" "}
                                 </Link> }
                               
                             </li>
                             <li>
                                 <a
-                                    href="#"
-                                    title=""
+                                   
                                     className="flex text-sm text-gray-800 transition-all duration-200 hover:text-cyan-700 focus:text-cyan-700"
                                 >
                                     {" "}
@@ -226,8 +222,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <a
-                                    href="#"
-                                    title=""
+                                    
                                     className="flex text-sm text-gray-800 transition-all duration-200 hover:text-cyan-700 focus:text-cyan-700"
                                 >
                                     {" "}
@@ -245,9 +240,9 @@ export default function Footer() {
                     <ul className="flex items-center mt-5 space-x-3 md:order-3 sm:mt-0">
                         <li>
                             <a
-                                href="#"
-                                title=""
-                                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-cyan-600 focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600"
+                                href="https://twitter.com/IsmailTahiri5"
+                                target="blank"
+                                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 hover:text-cyan-600"
                             >
                                 <svg
                                     className="w-4 h-4"
@@ -261,9 +256,9 @@ export default function Footer() {
                         </li>
                         <li>
                             <a
-                                href="#"
-                                title=""
-                                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-cyan-600 focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600"
+                               href="https://www.facebook.com/ismail.thr.58/"
+                                target='blank'
+                                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 hover:text-cyan-600"
                             >
                                 <svg
                                     className="w-4 h-4"
@@ -277,9 +272,10 @@ export default function Footer() {
                         </li>
                         <li>
                             <a
-                                href="#"
+                                 href="https://www.instagram.com/is0u54.py"
+                                 target='blank'
                                 title=""
-                                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-cyan-600 focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600"
+                                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 hover:text-cyan-600"
                             >
                                 <svg
                                     className="w-4 h-4"
@@ -295,9 +291,10 @@ export default function Footer() {
                         </li>
                         <li>
                             <a
-                                href="#"
-                                title=""
-                                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 focus:bg-orange-600 hover:text-cyan-600 focus:text-white hover:bg-orange-600 hover:border-orange-600 focus:border-orange-600"
+                                
+                                href="https://github.com/I0u54"
+                                target='blank'
+                                className="flex items-center justify-center text-gray-800 transition-all duration-200 bg-transparent border border-gray-300 rounded-full w-7 h-7 hover:text-cyan-600"
                             >
                                 <svg
                                     className="w-4 h-4"

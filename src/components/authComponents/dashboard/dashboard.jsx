@@ -1,4 +1,4 @@
-import { Button, Text, useDisclosure, useToast } from "@chakra-ui/react"
+import { Button, Spinner, Text, Tooltip, useDisclosure, useToast } from "@chakra-ui/react"
 import { useRef, useState } from "react"
 import { Link, Outlet } from "react-router-dom"
 import Chart from "./chart"
@@ -20,6 +20,7 @@ import axios from "axios"
 import { useDispatch } from "react-redux"
 import { setTurnedStatus } from "../../../slices/turnedSlice"
 import Users from "./users"
+import Donut from "./donut"
 
 
 
@@ -32,6 +33,7 @@ export default function Dashboard() {
     const cancelRef = useRef()
     const toast = useToast()
     const dispatch = useDispatch()
+    const [loading, setLoading] = useState(false)
 
     const storeTurned = async () => {
         if (!durationRef.current.value || !durationTypeRef.current.value || !priceRef.current.value) {
@@ -97,6 +99,41 @@ export default function Dashboard() {
             })
         })
 
+    }
+    const remindPeople = async ()=>{
+        setLoading(true)
+        await axios.post('/remindPeople',{},{
+            headers: {
+
+                Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+
+            }
+        }).then((response)=>{
+            setLoading(false)
+
+            toast({
+
+                title: response.data.message,
+                status: 'success',
+                duration: 8000,
+                isClosable: true,
+                position: 'left-top',
+
+            })
+
+        }).catch((error) => {
+            setLoading(false)
+
+            toast({
+
+                title: error.response.data.error,
+                status: 'error',
+                duration: 4000,
+                isClosable: true,
+                position: 'left-top',
+
+            })
+        })
     }
 
     return (
@@ -340,12 +377,11 @@ export default function Dashboard() {
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                target="_blank"
-                                                className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
+                                               
+                                                className="text-base cursor-not-allowed text-gray-500 font-normal rounded-lg hover:bg-gray-50 flex items-center p-2 group hover:text-gray-400 "
                                             >
                                                 <svg
-                                                    className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                                    className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -353,21 +389,18 @@ export default function Dashboard() {
                                                     <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                                 </svg>
                                                 <span className="ml-3 flex-1 whitespace-nowrap">
-                                                    Kanban
+                                                    App
                                                 </span>
-                                                <span className="bg-gray-200 text-gray-800 ml-3 text-sm font-medium inline-flex items-center justify-center px-2 rounded-full">
-                                                    Pro
-                                                </span>
+                                                
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                target="_blank"
-                                                className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
+                                               
+                                                className="text-base cursor-not-allowed text-gray-500 font-normal rounded-lg hover:bg-gray-50 flex items-center p-2 group hover:text-gray-400 "
                                             >
                                                 <svg
-                                                    className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                                    className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -376,18 +409,16 @@ export default function Dashboard() {
                                                     <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
                                                 </svg>
                                                 <span className="ml-3 flex-1 whitespace-nowrap">Inbox</span>
-                                                <span className="bg-gray-200 text-gray-800 ml-3 text-sm font-medium inline-flex items-center justify-center px-2 rounded-full">
-                                                    Pro
-                                                </span>
+                                               
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
+                                               
+                                                className="text-base cursor-not-allowed text-gray-500 font-normal rounded-lg hover:bg-gray-50 flex items-center p-2 group hover:text-gray-400 "
                                             >
                                                 <svg
-                                                    className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                                    className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -403,11 +434,10 @@ export default function Dashboard() {
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
+                                                className="text-base cursor-not-allowed text-gray-500 font-normal rounded-lg hover:bg-gray-50 flex items-center p-2 group hover:text-gray-400 "
                                             >
                                                 <svg
-                                                    className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                                    className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -419,17 +449,17 @@ export default function Dashboard() {
                                                     />
                                                 </svg>
                                                 <span className="ml-3 flex-1 whitespace-nowrap">
-                                                    Products
+                                                    Packs
                                                 </span>
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
+                                               
+                                                className="text-base cursor-not-allowed text-gray-500 font-normal rounded-lg hover:bg-gray-50 flex items-center p-2 group hover:text-gray-400 "
                                             >
                                                 <svg
-                                                    className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                                    className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -447,11 +477,11 @@ export default function Dashboard() {
                                         </li>
                                         <li>
                                             <a
-                                                href="#"
-                                                className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
+                                              
+                                                className="text-base cursor-not-allowed text-gray-500 font-normal rounded-lg hover:bg-gray-50 flex items-center p-2 group hover:text-gray-400 "
                                             >
                                                 <svg
-                                                    className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                                    className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -509,21 +539,35 @@ export default function Dashboard() {
 
                                             <span className="ml-3">Create</span>
                                         </a>
-                                        <a
-                                            href="#"
-                                            target="_blank"
-                                            className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2"
-                                        >
-                                            <svg
-                                                className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
-                                                fill="currentColor"
-                                                viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg"
+                                        <Tooltip label='This can take alot of time be careful' bg='red.500' placement="right-end">
+                                            <a
+                                                onClick={()=>{remindPeople()}}
+
+                                                className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2"
                                             >
-                                                <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
-                                            </svg>
-                                            <span className="ml-3">Components</span>
-                                        </a>
+                                                {loading ? <Spinner thickness='3px'
+                                                    speed='0.35s'
+                                                    
+                                                /> :
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width={16}
+                                                        height={16}
+                                                        fill="currentColor"
+
+                                                        className="bi bi-bell-fill w-5 h-5 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+
+                                                        viewBox="0 0 16 16"
+                                                    >
+                                                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                                                    </svg>}
+
+                                                <span className="ml-3">Reminder</span>
+
+                                            </a>
+
+                                        </Tooltip>
+
                                         <Link to='/logout'
                                             href="#"
                                             className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-50 hover:border flex items-center p-2 group"
@@ -565,175 +609,20 @@ export default function Dashboard() {
                                 </div>
                                 <Stats />
                                 <div className="grid grid-cols-1 2xl:grid-cols-2 gap-4 my-4 ">
-                                   <Users/>
-                                    <div className="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  ">
-                                        <h3 className="text-xl leading-none font-bold text-gray-900 mb-10">
-                                            Acquisition Overview
-                                        </h3>
-                                        <div className="block w-full overflow-x-auto">
-                                            <table className="items-center w-full bg-transparent border-collapse">
-                                                <thead>
-                                                    <tr>
-                                                        <th className="px-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">
-                                                            Top Channels
-                                                        </th>
-                                                        <th className="px-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">
-                                                            Users
-                                                        </th>
-                                                        <th className="px-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap min-w-140-px" />
-                                                    </tr>
-                                                </thead>
-                                                <tbody className="divide-y divide-gray-100">
-                                                    <tr className="text-gray-500">
-                                                        <th className="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
-                                                            Organic Search
-                                                        </th>
-                                                        <td className="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">
-                                                            5,649
-                                                        </td>
-                                                        <td className="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
-                                                            <div className="flex items-center">
-                                                                <span className="mr-2 text-xs font-medium">
-                                                                    30%
-                                                                </span>
-                                                                <div className="relative w-full">
-                                                                    <div className="w-full bg-gray-200 rounded-sm h-2">
-                                                                        <div
-                                                                            className="bg-cyan-600 h-2 rounded-sm"
-                                                                            style={{ width: "30%" }}
-                                                                        />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr className="text-gray-500">
-                                                        <th className="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
-                                                            Referral
-                                                        </th>
-                                                        <td className="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">
-                                                            4,025
-                                                        </td>
-                                                        <td className="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
-                                                            <div className="flex items-center">
-                                                                <span className="mr-2 text-xs font-medium">
-                                                                    24%
-                                                                </span>
-                                                                <div className="relative w-full">
-                                                                    <div className="w-full bg-gray-200 rounded-sm h-2">
-                                                                        <div
-                                                                            className="bg-orange-300 h-2 rounded-sm"
-                                                                            style={{ width: "24%" }}
-                                                                        />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr className="text-gray-500">
-                                                        <th className="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
-                                                            Direct
-                                                        </th>
-                                                        <td className="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">
-                                                            3,105
-                                                        </td>
-                                                        <td className="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
-                                                            <div className="flex items-center">
-                                                                <span className="mr-2 text-xs font-medium">
-                                                                    18%
-                                                                </span>
-                                                                <div className="relative w-full">
-                                                                    <div className="w-full bg-gray-200 rounded-sm h-2">
-                                                                        <div
-                                                                            className="bg-teal-400 h-2 rounded-sm"
-                                                                            style={{ width: "18%" }}
-                                                                        />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr className="text-gray-500">
-                                                        <th className="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
-                                                            Social
-                                                        </th>
-                                                        <td className="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">
-                                                            1251
-                                                        </td>
-                                                        <td className="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
-                                                            <div className="flex items-center">
-                                                                <span className="mr-2 text-xs font-medium">
-                                                                    12%
-                                                                </span>
-                                                                <div className="relative w-full">
-                                                                    <div className="w-full bg-gray-200 rounded-sm h-2">
-                                                                        <div
-                                                                            className="bg-pink-600 h-2 rounded-sm"
-                                                                            style={{ width: "12%" }}
-                                                                        />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr className="text-gray-500">
-                                                        <th className="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
-                                                            Other
-                                                        </th>
-                                                        <td className="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">
-                                                            734
-                                                        </td>
-                                                        <td className="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
-                                                            <div className="flex items-center">
-                                                                <span className="mr-2 text-xs font-medium">9%</span>
-                                                                <div className="relative w-full">
-                                                                    <div className="w-full bg-gray-200 rounded-sm h-2">
-                                                                        <div
-                                                                            className="bg-indigo-600 h-2 rounded-sm"
-                                                                            style={{ width: "9%" }}
-                                                                        />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr className="text-gray-500">
-                                                        <th className="border-t-0 align-middle text-sm font-normal whitespace-nowrap p-4 pb-0 text-left">
-                                                            Email
-                                                        </th>
-                                                        <td className="border-t-0 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4 pb-0">
-                                                            456
-                                                        </td>
-                                                        <td className="border-t-0 align-middle text-xs whitespace-nowrap p-4 pb-0">
-                                                            <div className="flex items-center">
-                                                                <span className="mr-2 text-xs font-medium">7%</span>
-                                                                <div className="relative w-full">
-                                                                    <div className="w-full bg-gray-200 rounded-sm h-2">
-                                                                        <div
-                                                                            className="bg-purple-500 h-2 rounded-sm"
-                                                                            style={{ width: "7%" }}
-                                                                        />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                    <Users />
+                                    <Donut/>
                                 </div>
-                               
 
-                                    <Outlet />
-                               
+
+                                <Outlet />
+
                             </div>
                         </main>
 
 
                         <p className="text-center text-sm text-gray-500 my-10">
                             © {(new Date().getFullYear() + "-" + (new Date().getFullYear() - 1))}{" "}
-                            <a href="#" className="hover:underline" target="_blank">
+                            <a className="no-underline hover:text-gray-500 ">
                                 Turned
                             </a>
                             . All rights reserved.

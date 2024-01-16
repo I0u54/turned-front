@@ -112,7 +112,7 @@ export default function Profile() {
 
             <section className="secondHomeSection">
                 <div className="mainProfile">
-                    <Tabs isFitted variant='enclosed' colorScheme={'teal'} >
+                    <Tabs isFitted variant='enclosed' colorScheme={'teal'}  >
                         <TabList mb='1em'>
                             <Tab fontWeight={'600'}>My Participations</Tab>
                             <Tab fontWeight={'600'}>Saves</Tab>

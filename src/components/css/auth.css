@@ -31,7 +31,7 @@
   width: 60%;
   height:fit-content ;
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   
 }
@@ -85,7 +85,7 @@
   width: 45%;
   height:fit-content ;
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   /* display: flex;
   flex-direction: column;
@@ -128,7 +128,7 @@
   width: 45%;
   height:fit-content ;
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   
 }
@@ -170,7 +170,7 @@
   width: 45%;
   height:fit-content ;
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   
 }
@@ -200,7 +200,7 @@
 }
 
 
-input:focus{
+form .form-body input:focus{
   box-shadow: none !important;
   border-color: black !important;
   border-width: 2px;

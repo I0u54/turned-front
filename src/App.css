@@ -17,7 +17,7 @@ a{
 
 header{
   width: 100%;
-  z-index: 999;
+  z-index: 1;
  
   
   display: flex;
@@ -403,6 +403,11 @@ margin: auto;
 .capitalize-first::first-letter{
   text-transform: uppercase;
 }
+.scroll-none::-webkit-scrollbar {
+  display: none;
+}
+
+
 @media(max-width:1220px){
   .secondHomeSection .main{
 

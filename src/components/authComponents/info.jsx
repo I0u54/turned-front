@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { Button, Select, useToast } from "@chakra-ui/react";
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { setTurnedStatus } from "../../slices/turnedSlice";
+import mp from '../assets/sound.mp3'
 
 
 export default function Info() {
@@ -17,6 +18,7 @@ export default function Info() {
     const amountRef = useRef(null)
     const toast = useToast()
     const dispatch = useDispatch()
+    let audioRef = useRef(null)
 
 
 
@@ -39,6 +41,7 @@ export default function Info() {
                 variant:'left-accent'
               })
             setStatus('idle')
+            audioRef.current.play()
 
         }).catch((error) => {
             toast({
@@ -86,6 +89,7 @@ export default function Info() {
 
     return (
         <section className="secondHomeSection">
+             <audio ref = {audioRef}src={mp}></audio>
             <div className="turnedInfo">
 
                 <Turned
