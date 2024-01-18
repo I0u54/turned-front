@@ -165,13 +165,13 @@ function App() {
         </AlertDialogOverlay>
       </AlertDialog>
 
-      {!isDashboard && <Box w='100%' h='40px' bgGradient='linear(to-l, #343A40,#00CED1)'>
-        <Center h='40px' color='white'>
+      {!isDashboard && <div className='topheader'><Box w='100%' h='40px' bgGradient='linear(to-l, #343A40,#00CED1)'>
+        <Center h='40px' color='white' >
           You can always disocver our news from here &nbsp;&nbsp;&nbsp;<Button onClick={onAlertOpen} size='xs' leftIcon={<EmailIcon />} colorScheme='gray' variant='solid'>
             Email
           </Button>
         </Center>
-      </Box>}
+      </Box></div> }
       {!isDashboard && <Header />}
 
 
