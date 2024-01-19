@@ -70,6 +70,7 @@ function App() {
   }
  
   useEffect(() => {
+   
     setIsDashboard(location.pathname === '/dashboard' || location.pathname === '/dashboard/turneds')
     if (isLoged) {
       userOfToken()

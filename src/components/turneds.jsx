@@ -79,7 +79,7 @@ export default function Turneds() {
             )}
         </div>
         {count < turneds.length && (
-          <Button colorScheme='BlackAlpha 100' variant='outline' onClick={() => {
+          <Button colorScheme='teal' variant='outline' onClick={() => {
             setCount((prevCount) => Math.min(prevCount + 6, turneds.length));
           }} marginTop={'10px'}>
             <i className="bi bi-three-dots"></i>

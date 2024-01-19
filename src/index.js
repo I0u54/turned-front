@@ -15,7 +15,7 @@ console.warn = () => {};
 console.error = () => {};
 
 
-axios.defaults.baseURL = 'http://localhost:8000/';
+axios.defaults.baseURL = 'http://192.168.0.108:8000/';
 const store = configureStore({
   reducer: { login: loginSlice, turned: turnedSlice }
 })
@@ -26,8 +26,10 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <ChakraProvider>
+        
 
-        <App />
+          <App />
+
 
       </ChakraProvider>
 
