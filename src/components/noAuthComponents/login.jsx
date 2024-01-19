@@ -76,7 +76,7 @@ export default function Login() {
                 position: 'left-top',
               })
 
-                navigate("/")
+            navigate("/")
            
         }).catch((error) => {
             setLoading(false)

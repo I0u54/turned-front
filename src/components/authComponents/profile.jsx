@@ -127,6 +127,7 @@ export default function Profile() {
                                                 <Th >Turned</Th>
                                                 <Th>Amount</Th>
                                                 <Th>Pay date</Th>
+                                                <Th>Reparticipation count</Th>
                                                 <Th textAlign={'center'}>Reparticipate</Th>
                                                 <Th>payed</Th>
                                                 <Th isNumeric>View</Th>
@@ -155,7 +156,8 @@ export default function Profile() {
                                                             day: 'numeric',
                                                             year: 'numeric',
                                                         }) : 'waiting for activation'}</Td>
-                                                        <Td textAlign={'center'}>{reparticipationDate < new Date().getTime() && new Date(p.daret.expired_at).getTime()  >= new Date().getTime()  ? 
+                                                        <Td>{p.payCount <= 1 ? p.payCount + " time" : p.payCount + " times"}</Td>
+                                                        <Td textAlign={'center'}>{reparticipationDate < new Date().getTime() && p.payCount < p.daret.duration  ? 
                                                             <IconButton
                                                                 isRound={true}
                                                                 variant='solid'
@@ -169,7 +171,7 @@ export default function Profile() {
 
 
                                                             :
-                                                            <Tooltip label={reparticipationDate > new Date().getTime()  && "next participation at : " + new Date(reparticipationDate).toDateString()}>
+                                                            <Tooltip label={reparticipationDate > new Date().getTime()  &&  p.payCount < p.daret.duration && "next participation at : " + new Date(reparticipationDate).toDateString()}>
                                                                 <IconButton
                                                                     isRound={true}
                                                                     variant='solid'
