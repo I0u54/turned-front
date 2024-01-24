@@ -14,6 +14,7 @@ export default function Info() {
     const { id } = useParams();
     const navigate = useNavigate();
     let [turned, serTurned] = useState({})
+    let [zone,setZone] = useState()
     let [status, setStatus] = useState('idle')
     const amountRef = useRef(null)
     const toast = useToast()
@@ -79,6 +80,13 @@ export default function Info() {
         if (status == 'idle') {
             axios.get('/darets/' + id).then((response) => {
                 serTurned(response.data.daret)
+                setZone(response.data.daret.dtype === 'day'
+                ? new Date().setDate(new Date().getDate() + 1)
+                : response.data.daret.dtype === 'week'
+                ? new Date().setDate(new Date().getDate() + 7)
+                : response.data.daret.dtype === 'month'
+                ? new Date().setMonth(new Date().getMonth() + 1)
+                : null)
                 setStatus('success')
             }).catch(() => {
                 navigate('/')
@@ -109,9 +117,13 @@ export default function Info() {
 
 
                 <div className="participants">
+                  
+                    
                     {turned && turned.participations && turned.participations.map((p) => (
-                        <div className="participant">
-                            <h1>#{p.user.name + " " + p.user.lastName} has participated with {p.quantity == 1 ? 'full' : p.quantity == 0.5 ? 'half' : 'quarter'} turned</h1>
+                        
+                        <div className={"participant" + (p.payDate != null && new Date(p.payDate).getTime() <= zone && !p.payed ? " bg-green-100" : ' bg-gray-100')}>
+                            
+                            <h1>#{p.user.name + " " + p.user.lastName} has participated with {p.quantity == 1 ? 'full' : p.quantity == 0.5 ? 'half' : 'quarter'} turned {p.payDate != null && new Date(p.payDate).getTime() <= zone && !p.payed && " ( its my turn )"}  <span className="text-green-400">{p.payed && "( payed )"}</span> </h1>
                         </div>
                     ))}
                 </div>
