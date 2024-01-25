@@ -128,6 +128,7 @@ export default function Profile() {
                                                 <Th>Amount</Th>
                                                 <Th>Pay date</Th>
                                                 <Th>Reparticipation count</Th>
+                                                <Th>remaining periods</Th>
                                                 <Th textAlign={'center'}>Reparticipate</Th>
                                                 <Th>payed</Th>
                                                 <Th isNumeric>View</Th>
@@ -143,12 +144,23 @@ export default function Profile() {
                                                             : p.daret.dtype == 'month'
                                                                 ? new Date(p.createdAt).setMonth(new Date(p.createdAt).getMonth() + 1)
                                                                 : null;
-
-
-
-                                                return (
-
-                                                    <Tr>
+                                                               
+                                                const restDate = 
+                                                    p.daret.status == 'activated' ? 
+                                                    p.daret.dtype == 'day'
+                                                    ? Math.ceil((new Date(p.daret.expired_at) - new Date()) / (24 * 60 * 60 * 1000))  
+                                                    : p.daret.dtype == 'week'
+                                                        ? Math.ceil((new Date(p.daret.expired_at) - new Date()) / (7 * 24 * 60 * 60 * 1000))
+                                                        : p.daret.dtype == 'month'
+                                                            ?(new Date(p.daret.expired_at).getFullYear() -  new Date().getFullYear()) * 12 + (new Date(p.daret.expired_at).getMonth() -  new Date().getMonth())
+                                                            : null:null;
+                                                            
+                                                            
+                                                            
+                                                            return (
+                                                                
+                                                                <Tr>
+                                                       
                                                         <Td>T#{p.daret.id}</Td>
                                                         <Td>{p.daret.price * p.daret.pnumber * p.quantity} Dh</Td>
                                                         <Td >{p.payDate != null ? new Date(p.payDate).toLocaleDateString('en-US', {
@@ -157,6 +169,7 @@ export default function Profile() {
                                                             year: 'numeric',
                                                         }) : 'waiting for activation'}</Td>
                                                         <Td>{p.payCount <= 1 ? p.payCount + " time" : p.payCount + " times"}</Td>
+                                                        <Td>{restDate != null ? restDate +" "+ p.daret.dtype+"s" : 'waiting for activation'}</Td>
                                                         <Td textAlign={'center'}>{reparticipationDate < new Date().getTime() && p.payCount < p.daret.duration  ? 
                                                             <IconButton
                                                                 isRound={true}

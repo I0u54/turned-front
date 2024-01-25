@@ -111,6 +111,7 @@ export default function Info() {
                         duration: turned.duration,
                         pNumber: turned.pnumber,
                         status: turned.status
+                        
                     }}
                 />
 

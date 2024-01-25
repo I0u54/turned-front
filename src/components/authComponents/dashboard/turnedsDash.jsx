@@ -174,8 +174,8 @@ export default function TurnedsDash() {
                                     </label>
                                     <select id="countries" className=" border rounded  block w-full p-2.5 text-gray-400 leading-tight focus:outline-none focus:shadow-outline" ref={durationTypeRef}>
                                         <option selected value={selectedTurned.dtype} className="capitalize">{selectedTurned.dtype}</option>
-                                        <option value="year" className="text-gray-500">Year</option>
                                         <option value="month" className="text-gray-500">Month</option>
+                                        <option value="week" className="text-gray-500">Week</option>
                                         <option value="day" className="text-gray-500">Day</option>
                                     </select>
                                 </div>
