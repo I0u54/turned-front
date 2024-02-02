@@ -37,6 +37,7 @@ import Dash from './components/authComponents/dashboard/dash';
 import Dashboard from './components/authComponents/dashboard/dashboard';
 import TurnedsDash from './components/authComponents/dashboard/turnedsDash';
 import AnimatedCursor from "react-animated-cursor"
+import Members from './components/authComponents/dashboard/members';
 
 
 
@@ -45,7 +46,7 @@ function App() {
 
   const dispatch = useDispatch()
   const location = useLocation();
-  const [isDashboard, setIsDashboard] = useState(location.pathname === '/dashboard' || location.pathname === '/dashboard/turneds');
+  const [isDashboard, setIsDashboard] = useState(location.pathname === '/dashboard' || location.pathname === '/dashboard/turneds' || location.pathname === '/dashboard/members');
 
   let isLoged = useSelector(state => state.login.isLoged)
   const { isOpen: alertIsOpen, onOpen: onAlertOpen, onClose: onAlertClose } = useDisclosure();
@@ -71,7 +72,7 @@ function App() {
  
   useEffect(() => {
    
-    setIsDashboard(location.pathname === '/dashboard' || location.pathname === '/dashboard/turneds')
+    setIsDashboard(location.pathname === '/dashboard' || location.pathname === '/dashboard/turneds'|| location.pathname === '/dashboard/turneds' || location.pathname === '/dashboard/members')
     if (isLoged) {
       userOfToken()
 
@@ -198,6 +199,7 @@ function App() {
             <Route element={<Dash />}>
               <Route element={<Dashboard />} path='/dashboard'>
                 <Route element={<TurnedsDash />} path='turneds' />
+                <Route element={<Members />} path='members' />
 
 
               </Route>

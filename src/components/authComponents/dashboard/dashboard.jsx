@@ -414,12 +414,12 @@ export default function Dashboard() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link to ="members"
                                                
-                                                className="text-base cursor-not-allowed text-gray-500 font-normal rounded-lg hover:bg-gray-50 flex items-center p-2 group hover:text-gray-400 "
+                                                className="text-base   text-gray-900 font-normal rounded-lg hover:bg-gray-50 flex items-center p-2 group hover:text-gray-400 "
                                             >
                                                 <svg
-                                                    className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                                    className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -431,7 +431,7 @@ export default function Dashboard() {
                                                     />
                                                 </svg>
                                                 <span className="ml-3 flex-1 whitespace-nowrap">Users</span>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
                                             <a

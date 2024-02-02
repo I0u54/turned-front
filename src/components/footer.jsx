@@ -8,7 +8,7 @@ export default function Footer() {
 
     return (
         <section className="py-4 sm:pt-16 border">
-            <div className="px-4 mx-auto sm:px-6 lg:px-8 w-75">
+            <div className="px-4 mx-auto sm:px-6 lg:px-8 w-[82%]">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-y-12 gap-x-8 xl:gap-x-12">
                     <div className="col-span-2 md:col-span-4 ">
                         <Link to='/'>
